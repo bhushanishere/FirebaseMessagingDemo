@@ -2,13 +2,11 @@
 //  AppDelegate+PushNotifications.swift
 //  ChatApp
 //
-//  Created by Bhushan  Borse on 12/08/19.
+//  Created by Bhushan  Borse on 14/12/19.
 //  Copyright © 2019 Bhushan  Borse. All rights reserved.
 //
 
 import Foundation
-
-import UserNotifications
 import Firebase
 import UserNotifications
 import FirebaseInstanceID
@@ -31,9 +29,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         Messaging.messaging().apnsToken = deviceToken
-        Messaging.messaging().subscribe(toTopic: "general") { error in
-            print("Subscribed to general topic")
-        }
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
